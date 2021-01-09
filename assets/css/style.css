@@ -281,10 +281,6 @@ input:focus::-moz-placeholder {
   transition: 0.4s;
 }
 
-.capitalize {
-  text-transform: capitalize;
-}
-
 h1 a,
 h2 a,
 h3 a,
@@ -424,7 +420,6 @@ hr {
 .btn {
   background: #E61384;
   -moz-user-select: none;
-  text-transform: capitalize;
   color: #fff;
   cursor: pointer;
   display: inline-block;
@@ -502,7 +497,6 @@ hr {
   border: 2px solid #750067;
   padding: 18px 38px;
   margin: 10px;
-  text-transform: capitalize;
   color: #750067;
   cursor: pointer;
   display: inline-block;
@@ -3714,7 +3708,6 @@ hr {
   font-weight: 900;
   margin-bottom: 0;
   font-family: "Nunito", sans-serif;
-  text-transform: capitalize;
 }
 @media (max-width: 767px) {
   .bradcam_area h3 {
@@ -3754,7 +3747,6 @@ hr {
 }
 .popup_box .boxed-btn3 {
   width: 100%;
-  text-transform: capitalize;
 }
 .popup_box .nice-select {
   -webkit-tap-highlight-color: transparent;
@@ -5021,7 +5013,6 @@ del {
 .main-header .main-menu ul ul.submenu > li > a {
   padding: 6px 10px !important;
   font-size: 14px;
-  text-transform: capitalize;
 }
 .main-header .main-menu ul ul.submenu > li > a::before {
   position: absolute;
@@ -5268,7 +5259,6 @@ z .slider-area .hero-cap h2 {
   color: #fff;
   font-size: 50px;
   font-weight: 700;
-  text-transform: capitalize;
 }
 
 .slider-height2 {
