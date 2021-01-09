@@ -4977,7 +4977,6 @@ del {
   -moz-transition: 0.3s;
   -o-transition: 0.3s;
   transition: 0.3s;
-  text-transform: capitalize;
 }
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
   .main-header .main-menu ul li > a {
