@@ -3,91 +3,421 @@
   <head>
     <meta charset="utf8">
     <title>NeerY</title>
-    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+      * {
+        font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html, body,
+      #bottom-layer, #top-layer {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+      }
+
+      #top-layer {
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      #title {
+        color: white;
+        font-size: min(10vh, 10vw);
+        font-weight: 800;
+      }
+
+      #places {
+        padding: 0.5rem 1rem;
+        font-weight: 600;
+        border-radius: 0.75rem;
+        filter: drop-shadow(0 4px 3px rgb(0 0 0 / 0.07)) drop-shadow(0 2px 2px rgb(0 0 0 / 0.06));
+        background-color: white;
+        border: 1px rgb(229 229 229) solid;
+        color: black;
+
+        text-decoration: none;
+
+        display: flex;
+        gap: 0.5rem;
+      }
+
+      #places:hover {
+        background-color: black;
+        border-color: black;
+        color: white;
+      }
+
+      #arrow {
+        display: block;
+        height: 100%;
+      }
+    </style>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=yes">
   </head>
   <body>
-    <div class="w-full h-full">
-      <div class="sticky top-0 left-0 h-14 bg-white w-full shadow-md hidden lg:grid grid-cols-6">
-        <div class="h-14 w-full ml-6 flex gap-8 col-span-2 items-center">
-          <a href="/"><img src="img/logo.svg" class="h-10" /></a>
-          <p><a class="py-2 px-4 font-semibold rounded-lg shadow-md bg-black text-white hover:bg-black" href="http://eepurl.com/hldxnH">Töltsd le a NeerY-t!</a></p>
-        </div>
-        <div class="h-14 col-span-4 w-full flex flex-row items-center justify-end gap-4 pr-4">
-          <a href="#home">Kezdőlap</a>
-          <a href="#how-help">Hogyan segítünk?</a>
-          <a href="#what">Mi az a NeerY?</a>
-          <a href="#how-work">Hogyan működik?</a>
-          <a href="#community">Közösség</a>
-        </div>
-      </div>
-      <div class="grid grid-cols-1 lg:grid-cols-2 grid-rows-1 h-screen w-full" id="home">
-        <div class="flex justify-center items-center flex-col">
-          <div class="pl-16 pr-16 lg:pr-20 lg:pl-28 w-full">
-            <p class="text-6xl">Choose the <b>real</b> experience</p>
-            <p class="mt-10">
-              Spórolj pénzt, időt, és kíméld meg magad a felesleges utazástól a NeerY segítségével.
-              <br />
-              <br />
-            </p>
-            <p class="mt-10"><a class="py-2 px-4 font-semibold rounded-lg shadow-md bg-black text-white hover:bg-black" href="http://eepurl.com/hldxnH">Fedezd fel!</a></p> és  <b>Legyen mindenhol egy ismerősöd!</b>
-          </div>
-        </div>
-        <div class="lg:flex justify-center items-center hidden">
-          <img src="img/hero.svg" width="500" class="pr-10" />
-        </div>
-      </div>
-      <div class="w-full mb-32 grid grid-cols-1 lg:grid-cols-10 grid-rows1" id="how-help">
-        <div class="w-full h-full col-span-3 lg:block hidden">
-          <img src="img/features.svg" class="ml-10 mr-10">
-        </div>
-        <div class="pl-16 pr-16 md:pr-20 md:pl-28 w-full col-span-1 lg:col-span-7">
-          <p class="text-5xl mb-16">Hogyan segítünk?</p>
-          <div class="grid grid-rows-4 grid-cols-1 lg:grid-rows-2 lg:grid-cols-2 ml-0 lg:ml-10 gap-10">
-            <div class="max-w-sm">
-              <p class="text-xl mb-2 font-medium">Megkímélünk a felesleges utaktól</p>
-              <p>A NeerY lehetővé teszi, hogy megtudd éppen mi történik a város bármely pontján. Tedd fel kérdésedet a térképen ahova szeretnéd és a NeerY eljuttatja neked azoknak, akik a közelében vannak.</p>
-            </div>
-            <div class="max-w-sm">
-              <p class="text-xl mb-2 font-medium">Spórolj pénzt</p>
-              <p>Számtalan akció van ami nem jut el hozzád. A NeerY segít hogy csakis a közeledben lévő legjobb ajánlatok találjanak meg, akkor amikor te szeretnéd.</p>
-            </div>
-            <div class="max-w-sm">
-              <p class="text-xl mb-2 font-medium">Legyen mindenhol egy barátod</p>
-              <p>A NeerY segítségével elérheted, hogy mindenhol legyen egy barátod aki segít neked ha kérdésed van. Élvezd a közösséghez tartozás előnyeit, hiszen azért jöttünk létre hogy egymást segítsük.</p>
-            </div>
-            <div class="max-w-sm">
-              <p class="text-xl mb-2 font-medium">Szervezz eseményeket</p>
-              <p>Szervezz lokális eseményeket a NeerY-al: "várunk mégegy embert a foci meccshez :)"</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="w-full mb-32" id="what">
-        <div class="pl-16 pr-16 md:pr-20 md:pl-28 w-full">
-          <p class="text-5xl mb-16">Mi is az a NeerY?</p>
-          <p class="max-w-2xl">
-            A NeerY egy közösség azoknak, akik hiszik, hogy az együttműködésé a jövő és szívesen segítenek másoknak. Az applikáció összeköti a NeerY tagokat, hogy hely specifikusan osszák meg tudásukat, mellyel időt és energiát spórolnak egymásnak. Kérdezz és kerüld el a tömeget, felesleges utakat és segíts más NeerY felhasználóknak, hogy ők a te lokális tudásoddal jobb döntéseket hozzanak.
-          </p>
-        </div>
-      </div>
-      <div class="w-full mb-32" id="how-work">
-        <div class="pl-16 pr-16 md:pr-20 md:pl-28 w-full">
-          <p class="text-5xl mb-16">Hogyan működik?</p>
-          <p class="max-w-2xl">
-            Mi a NeerY-nál egy olyan dinamikus térkép alapú applikációt fejlesztünk, ahol a felhasználók kérdéseket tehetnek fel a térképen lévő helyekre (POI-kra). A feltett kérdést az applikáció eljuttatja a többi felhasználóhoz, akik földrajzilag a kérdés 500 méteres környezetében tartózkodnak. A NeerY ezáltal lehetővé tesz olyan kérdéseket is, mint például: Van-e éppen szabad asztal? Milyen zene megy a helyen? vagy melyik teraszon van hely?
-          </p>
-        </div>
-      </div>
-
-      <div class="w-full mb-32" id="community">
-        <div class="pl-16 pr-16 md:pr-20 md:pl-28 w-full">
-          <p class="text-5xl mb-16">Közösség</p>
-          <p class="max-w-2xl">
-            A NeerY elsősorban egy közösség. Mi a NeerY-nál egy olyan jövőben hiszünk, ahol másokat segítve, tudásunkat megosztva jobbá és boldogabbá tesszük egymás mindennapjait. Ennek a jövőképnek az eléréséhez, minden NeerY tagra szükség van, ezért fontos kiemelni alapelveinket: pozitivitás, egymás segítése és az elképzeléseid megosztása.
-          </p>
-        </div>
-      </div>
+    <div id="bottom-layer">
+      <canvas id="shadeplane">
     </div>
+    <div id="top-layer">
+      <p id="title">Coming soon.</p>
+      <a id="places" href="https://places.neery.net">
+        Üzleteknek
+        <svg xmlns="http://www.w3.org/2000/svg" id="arrow" viewBox="0 0 448 512"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path fill="currentColor" d="M438.6 278.6l-160 160C272.4 444.9 264.2 448 256 448s-16.38-3.125-22.62-9.375c-12.5-12.5-12.5-32.75 0-45.25L338.8 288H32C14.33 288 .0016 273.7 .0016 256S14.33 224 32 224h306.8l-105.4-105.4c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l160 160C451.1 245.9 451.1 266.1 438.6 278.6z"/></svg>
+      </a>
+    </div>
+
+    <script>
+      function loadShader(gl, type, source) {
+        const shader = gl.createShader(type)
+        gl.shaderSource(shader, source)
+        gl.compileShader(shader)
+
+        if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
+          throw new Error(
+            'Failed to compile ' + type + ' shader: ' + gl.getShaderInfoLog(shader)
+          )
+        }
+
+        return shader
+      }
+
+      function createProgram(gl, vertex, fragment) {
+        const program = gl.createProgram()
+        gl.attachShader(program, vertex)
+        gl.attachShader(program, fragment)
+        gl.linkProgram(program)
+
+        if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
+          throw new Error(
+            'Unable to initialize the program: ' + gl.getProgramInfoLog(program)
+          )
+        }
+
+        return program
+      }
+
+      function createBuffers(gl) {
+        const vertexBuffer = gl.createBuffer()
+        gl.bindBuffer(gl.ARRAY_BUFFER, vertexBuffer)
+
+        const positions = [
+          -1.0,
+          -1.0,
+          1.0,
+          -1.0,
+          -1.0,
+          1.0,
+          1.0,
+          -1.0,
+          1.0,
+          1.0,
+          -1.0,
+          1.0,
+        ]
+        gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(positions), gl.STATIC_DRAW)
+
+        const surfaceBuffer = gl.createBuffer()
+
+        return {
+          vertex: vertexBuffer,
+          surface: surfaceBuffer,
+        }
+      }
+
+      function calculateSurface(gl, buffers) {
+        let width = gl.canvas.width / gl.canvas.height
+        let halfWidth = width * 0.5
+
+        gl.bindBuffer(gl.ARRAY_BUFFER, buffers.surface)
+        gl.bufferData(
+          gl.ARRAY_BUFFER,
+          new Float32Array([
+            -halfWidth,
+            -0.5,
+            halfWidth,
+            -0.5,
+            -halfWidth,
+            0.5,
+            halfWidth,
+            -0.5,
+            halfWidth,
+            0.5,
+            -halfWidth,
+            0.5,
+          ]),
+          gl.STATIC_DRAW
+        )
+      }
+
+      function drawScene(gl, programInfo, buffers, uniforms, delta_ms) {
+        gl.useProgram(programInfo.program)
+
+        if (programInfo.attribLocations.surfacePosition != -1) {
+          gl.bindBuffer(gl.ARRAY_BUFFER, buffers.surface)
+          gl.vertexAttribPointer(
+            programInfo.attribLocations.surfacePosition,
+            2,
+            gl.FLOAT,
+            false,
+            0,
+            0
+          )
+          gl.enableVertexAttribArray(programInfo.attribLocations.surfacePosition)
+        }
+
+        gl.bindBuffer(gl.ARRAY_BUFFER, buffers.vertex)
+        gl.vertexAttribPointer(
+          programInfo.attribLocations.position,
+          2,
+          gl.FLOAT,
+          false,
+          0,
+          0
+        )
+        gl.enableVertexAttribArray(programInfo.attribLocations.position)
+
+        gl.uniform1f(programInfo.uniformLocations.time, delta_ms / 1000)
+
+        let res = {
+          width: gl.canvas.width,
+          height: gl.canvas.height
+        }
+
+        if (res.height > res.width) {
+          let w = res.width;
+          res.width = res.height;
+          res.height = w * 2;
+        }
+
+        gl.uniform2fv(programInfo.uniformLocations.resolution, [
+          res.width,
+          res.height
+        ])
+        
+        Object.entries(uniforms).forEach(([k, v]) => {
+          gl['uniform' + v.type](
+            programInfo.uniformLocations[k],
+            v.get({
+              gl,
+              delta_ms,
+            })
+          )
+        })
+
+        gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT)
+        gl.drawArrays(gl.TRIANGLES, 0, 6)
+      }
+
+      const vertex = `\
+attribute vec3 position;
+attribute vec2 surfacePosition;
+
+void main() {
+    gl_Position = vec4(position, 1.);
+}\
+`,
+        fragment = `\
+// NeerY hero shader
+// by Gergő Móricz for NeerY
+// colormap via kbinani
+
+#ifdef GL_ES
+precision highp float;
+#endif
+
+uniform float time;
+uniform vec2 resolution;
+uniform float realTime;
+
+float colormap_red(float x) {
+	if (x < 0.09963276982307434) {
+		return 5.56064615384614E+02 * x + 6.34200000000000E+01;
+	} else if (x < 0.4070911109447479) {
+		return ((-1.64134573262743E+03 * x + 1.26126075878571E+03) * x + 8.30228593437549E+01) * x + 9.96536529647110E+01;
+	} else if (x < 0.5013306438922882) {
+		return 1.64123076923114E+02 * x + 1.64926153846145E+02;
+	} else if (x < 0.9049346148967743) {
+		return ((((-4.17783076764345E+04 * x + 1.55735420068591E+05) * x - 2.27018068370619E+05) * x + 1.61149115838926E+05) * x - 5.60588504546212E+04) * x + 7.93919652573346E+03;
+	} else {
+		return -2.67676923076906E+02 * x + 2.68590769230752E+02;
+	}
+}
+
+float colormap_green(float x) {
+	if (x < 0.1011035144329071) {
+		return 4.30627692307691E+02 * x - 1.56923076923038E-01;
+	} else if (x < 0.5013851821422577) {
+		return ((2.21240993583109E+02 * x - 7.23499016773187E+02) * x + 8.74292145995924E+02) * x - 3.78460594811949E+01;
+	} else {
+		return ((((-8.82260255008935E+03 * x + 3.69735516719018E+04) * x - 5.94940784200438E+04) * x + 4.54236515662453E+04) * x - 1.66043372157228E+04) * x + 2.59449114260420E+03;
+	}
+}
+
+float colormap_blue(float x) {
+	if (x < 0.50031378865242) {
+		return ((((1.32543265346288E+04 * x - 1.82876583834065E+04) * x + 9.17087085537958E+03) * x - 2.45909850441496E+03) * x + 7.42893247681885E+02) * x + 7.26668497072812E+01;
+	} else if (x < 0.609173446893692) {
+		return -3.50141636141726E+02 * x + 4.22147741147797E+02;
+	} else {
+		return ((1.79776073728688E+03 * x - 3.80142452792079E+03) * x + 2.10214624189039E+03) * x - 6.74426111651015E+01;
+	}
+}
+
+vec3 sat(vec3 c, float adj)
+{
+    return mix(vec3(dot(c, vec3(0.2125, 0.7154, 0.0721))), c, adj);
+}
+
+// bezier fade
+float bezier(float t) {
+	return t * t * (3. - 2. * t);
+}
+
+vec4 colormap(float x) {
+    x = x*.25 - .025;
+	float r = clamp(colormap_red(x) / 255.0, 0.0, 1.0);
+	float g = clamp(colormap_green(x) / 255.0, 0.0, 1.0);
+	float b = clamp(colormap_blue(x) / 255.0, 0.0, 1.0);
+    vec3 c = vec3(r, g, b);
+	c = sat(c, mix(0.5, 2., bezier(clamp(0., 1., time / 2.))));
+	return vec4(c, 1.0);
+}
+
+
+#define PI 3.141592654
+vec2 rot(vec2 p,float a)
+{
+    float c=sin(a*35.83);
+    float s=cos(a*35.83);
+    return p*mat2(s,c,c,-s);
+}
+void main()
+{
+    vec2 uv = gl_FragCoord.xy;
+    uv/=resolution.xy*.15;
+    uv=vec2(.125,.75)+(uv-vec2(.125,.5))*.003;
+    float T=realTime*.3;
+
+    vec3 c = clamp(1.-.7*vec3(
+        length(uv-vec2(1.1,1)),
+        length(uv-vec2(1.1,1)),
+        length(uv-vec2(1.1,1))
+        ),0.,1.)*2.-1.;
+    vec3 c0=vec3(0);
+    float w0=0.;
+    const float N=5.;
+    for(float i=0.;i<N;i++)
+    {
+        float wt=(i*i/N/N-.2)*.15;
+        float wp=0.5+(i+1.)*(i+1.5)*0.000001;
+        float wb=.05+i/N*0.1;
+    	c.zx=rot(c.zx,1.6+T*0.65*wt+(uv.x+.7)*23.*wp);
+    	c.xy=rot(c.xy,c.z*c.x*wb+1.7+T*wt+(uv.y+1.1)*15.*wp);
+    	c.yz=rot(c.yz,c.x*c.y*wb+2.4-T*0.79*wt+(uv.x+uv.y*(fract(i/2.)-0.25)*4.)*17.*wp);
+    	c.zx=rot(c.zx,c.y*c.z*wb+1.6-T*0.65*wt+(uv.x+.7)*23.*wp);
+    	c.xy=rot(c.xy,c.z*c.x*wb+1.7-T*wt+(uv.y+1.1)*15.*wp);
+        float w=(1.5-i/N);
+        c0+=c*w;
+        w0+=w;
+    }
+    c0=c0/w0*2.+.5;
+    c0*=.5+dot(c0,vec3(1))/sqrt(3.)*.5;
+    c0+=pow(length(sin(c0*PI*4.))/sqrt(3.)*1.0,20.)*(.3+.7*c0);
+	gl_FragColor = colormap(c0.b*.3+.25) * 1.2;
+}`,
+        initialColor = [0, 0, 0, 1],
+        extraHeight = 0,
+        extraWidth = 0,
+        uniforms = {
+          realTime: { type: '1f', get: () => (Date.now() / 1000) % (60 * 60) },
+        }
+
+      let canvasRef = document.getElementById("shadeplane")
+
+      let isRunning = true
+      let gl = canvasRef.getContext('webgl')
+
+      if (gl === null) {
+        throw new Error('WebGL unavailable.')
+      }
+
+      // Initial color clear
+      gl.clearColor(...initialColor)
+      gl.clear(gl.COLOR_BUFFER_BIT)
+
+      let vertShader = loadShader(gl, gl.VERTEX_SHADER, vertex)
+      let fragShader = loadShader(gl, gl.FRAGMENT_SHADER, fragment)
+      let program = createProgram(gl, vertShader, fragShader)
+
+      const programInfo = {
+        program,
+        attribLocations: {
+          position: gl.getAttribLocation(program, 'position'),
+          surfacePosition: gl.getAttribLocation(program, 'surfacePosition'),
+        },
+        uniformLocations: {
+          time: gl.getUniformLocation(program, 'time'),
+          resolution: gl.getUniformLocation(program, 'resolution'),
+          ...Object.fromEntries(
+            Object.entries(uniforms).map(([k]) => {
+              return [k, gl.getUniformLocation(program, k)]
+            })
+          ),
+        },
+      }
+
+      const buffers = createBuffers(gl)
+
+      function renderLoop(delta_ms) {
+        if (!isRunning) return
+        drawScene(gl, programInfo, buffers, uniforms, delta_ms)
+        requestAnimationFrame(renderLoop)
+      }
+
+      let resizeID = null
+
+      function doResize() {
+        let parent = canvasRef.parentElement
+        canvasRef.width = parent.offsetWidth + extraWidth
+        canvasRef.height = parent.offsetHeight + extraHeight
+
+        calculateSurface(gl, buffers)
+        gl.viewport(0, 0, gl.canvas.width, gl.canvas.height)
+      }
+
+      function onResize() {
+        clearTimeout(resizeID)
+        resizeID = setTimeout(doResize, 100)
+      }
+
+      window.addEventListener('resize', onResize)
+      doResize()
+
+      if (isRunning) renderLoop(0)
+
+      console.log('[ShadePlane] Ready!')
+
+      window.addEventListener("beforeunload", () => {
+        console.log('[ShadePlane] Cleaning up...')
+
+        isRunning = false
+        Object.values(buffers).forEach((x) => {
+          gl.deleteBuffer(x)
+        })
+        gl.deleteProgram(program)
+        gl.deleteShader(fragShader)
+        gl.deleteShader(vertShader)
+      });
+    </script>
   </body>
 </html>
