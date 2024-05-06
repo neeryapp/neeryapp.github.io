@@ -90,13 +90,12 @@ function InsideOauth() {
       ) : (
         <>
           <p style={{ margin: "10px 0", textAlign: "center" }}>
-            Hamarosan, de hogy biztosan ne maradj le, iratkozz fel, hogy a
-            jövőben követhesd foglalásaidat, vagy egyedi kedvezményekben
-            részesülhess.
+            Iratkozz fel, és létrehozzuk a profilodat személye szabott élményért
+            és egyedi kedvezményekért.
             <br />
             <br />
-            Coming Soon, but to make sure you don't miss out, subscribe so you
-            can track your bookings in the future or receive special discounts.
+            Subscribe now, and we will create your profile for a personalized
+            experience and discounts.
           </p>
           <button id="places" onClick={login}>
             Sign In With Google
